@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "412149274278",
+    "project_id": "abvgietconnect",
+    "storage_bucket": "abvgietconnect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412149274278:android:beff25bfe949b7009e4667",
+        "android_client_info": {
+          "package_name": "institute.college.abvgietconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412149274278-64ov1d9jpnaoag2ombs2rhv5frs99in6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA8l0z4egxMx8J_fJffyCxQ6l9ZBChyxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412149274278-64ov1d9jpnaoag2ombs2rhv5frs99in6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

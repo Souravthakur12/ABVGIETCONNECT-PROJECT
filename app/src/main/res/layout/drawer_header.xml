@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/teal_200"
+    android:padding="15dp">
+
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/nav_header_user_profile"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/logo"/>
+    <!---->    app:civ_border_width="2dp"
+    <!---->    app:civ_border_color="#FF000000"/>
+
+    <TextView
+        android:id="@+id/nav_header_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:text="ABVGIET CONNECT"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"/>
+
+   <!-- <TextView
+        android:id="@+id/nav_header_user_email"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:text="Email of the user"/>
+-->
+
+
+</LinearLayout>
