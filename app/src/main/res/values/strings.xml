@@ -8,4 +8,14 @@ A.B.V.G.I.E.T Pragatinagar offers you an opportunity to dedicate yourself as a q
     <string name="close">Close</string>
 
 
+    <string name="booki">BookI</string>
+    <string name="welcome_back">Student Zone</string>
+    <string name="read_it_together">Come here to explore more..</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="forget_password">Forget Password.?</string>
+
+
 </resources>

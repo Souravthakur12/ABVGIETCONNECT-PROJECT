@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="institute.college.abvgietconnect">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ABVGIETCONNECT">
-        <activity android:name=".AdministrationActivity"></activity>
+        <activity android:name=".StudentZone.LoginActivity"></activity>
+        <activity android:name=".Administration.Staff" />
+        <activity android:name=".Administration.AdministrationActivity" />
         <activity android:name=".GalleryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

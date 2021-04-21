@@ -6,25 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import institute.college.abvgietconnect.Administration.AdministrationActivity;
+import institute.college.abvgietconnect.StudentZone.LoginActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -89,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.administration)
         {
-            Intent intent = new Intent(MainActivity.this,AdministrationActivity.class);
+            Intent intent = new Intent(MainActivity.this, AdministrationActivity.class);
             startActivity(intent);
 
 
@@ -99,10 +96,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Url("http://www.abvgiet.org/");
 
         }
+        else if (id == R.id.reach)
+        {
+
+
+            MapUrl("google.navigation:q=Atal Bihari Vajpayee Government Institute of Engineering and technology,Himachal Pradesh");
+        }
+        else if (id == R.id.stud_zone)
+        {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+
+        }
+
 
         return false;
     }
-
 
 
     private void Url(String s) {
@@ -110,4 +119,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         startActivity(new Intent(Intent.ACTION_VIEW,uri));
 
     }
+
+    private void MapUrl(String s1)
+    {
+        Uri uri1 = Uri.parse(s1);
+        Intent intent = new Intent(Intent.ACTION_VIEW,uri1);
+        intent.setPackage("com.google.android.apps.maps");
+        startActivity(intent);
+
+
+    }
+
+
+
+
+
+
 }

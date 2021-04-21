@@ -39,7 +39,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation platform('com.google.firebase:firebase-bom:26.3.0')
     implementation 'com.google.firebase:firebase-database-ktx'
-    implementation 'com.google.firebase:firebase-database:19.2.1'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
+    implementation 'com.firebaseui:firebase-ui-database:6.3.0'
 
 
     // for text in same order
