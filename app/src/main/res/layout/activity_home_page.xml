@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sz_drawer_user"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentZone.HomePage">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="THIS IS HOMEPAGE"
+        android:textSize="30sp"
+        android:gravity="center"/>
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        app:headerLayout="@layout/sz_drawer_header"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/sz_navigation_drawer"
+        app:menu="@menu/sz_drawer_menu"
+        android:layout_gravity="start"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

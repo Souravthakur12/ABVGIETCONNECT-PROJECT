@@ -47,9 +47,6 @@
          android:id="@+id/reach"
          android:title="Reach Us"/>
 
-    <item android:id="@+id/log_out"
-        android:title="Log Out"
-       />
         </menu>
     </item>
 

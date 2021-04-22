@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+<group android:checkableBehavior="single">
+    <item android:id="@+id/about_us"
+        android:title="About Us" />
+    <item
+        android:id="@+id/scan_books"
+        android:title="Scan Books" />
+    <item
+        android:id="@+id/site"
+        android:title="Visit College Website" />
+</group>
+    <item android:title="Communicate with us">
+        <menu>
+
+  <!--  <item android:id="@+id/suggest_us"
+        android:title="Suggest Us"
+        android:icon="@drawable/baseline_feedback_black_18dp"/>-->
+
+     <item android:id="@+id/share"
+         android:title="Share" />
+
+    <item android:id="@+id/log_out"
+        android:title="Log Out"
+        />
+        </menu>
+    </item>
+</menu>
