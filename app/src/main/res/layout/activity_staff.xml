@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Administration.Staff">
 
-   <!-- <TableLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:layout_margin="40dp">
+        android:background="@color/white">
 
 
         <TableRow
-            android:background="@color/teal_200">
+            android:background="@color/colorBackground">
 
             <TextView
                 android:layout_width="0dp"
@@ -40,20 +40,13 @@
 
         </TableRow>
 
+    </TableLayout>
 
-
-
-
-
-
-    </TableLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="4dp"
-        android:background="@color/purple_200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

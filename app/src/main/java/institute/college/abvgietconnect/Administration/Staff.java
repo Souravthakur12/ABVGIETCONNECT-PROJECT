@@ -40,14 +40,16 @@ public class Staff extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Staffmodel> options =
                 new FirebaseRecyclerOptions.Builder<Staffmodel>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("StaffDetails"), Staffmodel.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference("StaffDetails"), Staffmodel.class)
                         .build();
         adapter = new StaffAdapter(options,this);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
 
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 

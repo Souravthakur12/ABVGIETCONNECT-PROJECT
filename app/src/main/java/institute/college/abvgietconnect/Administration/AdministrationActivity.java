@@ -24,7 +24,7 @@ public class AdministrationActivity extends AppCompatActivity {
         c4 = findViewById(R.id.bog);
 
 
-        c1.setOnClickListener(new View.OnClickListener() {
+        c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdministrationActivity.this,Staff.class);

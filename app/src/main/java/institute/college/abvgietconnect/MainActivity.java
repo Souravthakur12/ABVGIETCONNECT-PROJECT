@@ -91,7 +91,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }
-        else if (id == R.id.site)
+        else if (id == R.id.departments)
+        {
+            Intent intent = new Intent(MainActivity.this, Departments.class);
+            startActivity(intent);
+
+        }
+
+            else if (id == R.id.site)
         {
             Url("http://www.abvgiet.org/");
 

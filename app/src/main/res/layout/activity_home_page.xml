@@ -4,27 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sz_drawer_user"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".StudentZone.HomePage">
+    android:layout_height="match_parent">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
     <include
-        android:id="@+id/toolbar"
-        layout="@layout/custom_toolbar"/>
-
-    <TextView
+        layout="@layout/app_bar_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="THIS IS HOMEPAGE"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        android:layout_height="match_parent" />
 
 
-    </RelativeLayout>
 
 
     <com.google.android.material.navigation.NavigationView

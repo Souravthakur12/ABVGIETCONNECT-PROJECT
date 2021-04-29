@@ -36,6 +36,7 @@ public class StaffAdapter extends FirebaseRecyclerAdapter<Staffmodel,StaffAdapte
         holder.textView1.setText(model.getName());
         holder.textView2.setText(model.getDesignation());
 
+
     }
 
     @NonNull

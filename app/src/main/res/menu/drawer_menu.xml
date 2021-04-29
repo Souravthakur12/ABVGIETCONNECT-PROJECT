@@ -15,6 +15,7 @@
         android:title="Facilities "
         />
     <item
+        android:id="@+id/departments"
         android:title="Departments"
         />
 
