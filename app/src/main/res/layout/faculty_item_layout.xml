@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soup.neumorphism.NeumorphCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/background">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:background="@drawable/container_bg">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="12dp"
+                android:layout_weight="1.5"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacherName"
+                    android:text="Teacher Name"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacherDes"
+                    android:text="Teacher Designation"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teacherEmail"
+                    android:text="Teacher Email"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="14sp"
+                    android:textStyle="italic"/>
+
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/teacherImage"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
+                android:src="@drawable/userphoto"
+                android:layout_weight="0.5"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</soup.neumorphism.NeumorphCardView>

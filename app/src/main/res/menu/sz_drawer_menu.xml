@@ -3,11 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 <group android:checkableBehavior="single">
-    <item android:id="@+id/about_us"
-        android:title="About Us" />
-    <item
-        android:id="@+id/scan_books"
-        android:title="Scan Books" />
+
+    <item android:id="@+id/profile"
+        android:title="My Profile"/>
     <item
         android:id="@+id/site"
         android:title="Visit College Website" />

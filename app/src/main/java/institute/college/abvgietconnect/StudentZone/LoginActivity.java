@@ -6,6 +6,8 @@ import androidx.core.content.ContextCompat;
 
 import android.animation.Animator;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
@@ -126,20 +128,17 @@ public class LoginActivity extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser();
 
                                     String email = user.getEmail();
+                                    Uri image = user.getPhotoUrl();
                                     String uid = user.getUid();
 
                                     HashMap<Object,String> hashMap = new HashMap<>();
                                     hashMap.put("email",email);
                                     hashMap.put("name","");
-                                    hashMap.put("phone","");
-                                    hashMap.put("rollno","");
-                                    hashMap.put("stream","");
-
+                                    hashMap.put("uid",uid);
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
                                     DatabaseReference reference = database.getReference("Users");
                                     reference.child(uid).setValue(hashMap);
-
 
 
 
@@ -200,6 +199,19 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null ){
+
+            Intent intent = new Intent(LoginActivity.this, HomePage.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
 
 

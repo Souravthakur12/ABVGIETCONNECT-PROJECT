@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.GalleryFragment"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginVertical="8dp"
+            android:layout_margin="5dp"
+            android:background="@color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manali Trip"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="#828080">
+
+                </View>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/manaliRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </soup.neumorphism.NeumorphCardView>
+        <soup.neumorphism.NeumorphCardView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginVertical="8dp"
+            android:layout_margin="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Convocation"
+                android:layout_marginTop="16dp"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+
+            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="4dp"
+                android:background="#828080">
+
+            </View>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/convoRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </soup.neumorphism.NeumorphCardView>
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginVertical="8dp"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Teacher Day"
+                    android:layout_marginTop="16dp"
+                    android:textSize="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </TextView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="#828080">
+
+                </View>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/teacherDayRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </soup.neumorphism.NeumorphCardView>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -13,4 +13,27 @@
     <color name="colorSplashText">#F0F0F0</color>
     <color name="colorProgressBar">#FFCE511C</color>
     <color name="colorTextView">#83898E</color>
+    <color name="start">#FF061E</color>
+
+
+    <color name="SelectedIconColor">#04E1F8</color>
+    <color name="DefaultIconColor">#F6F6F6</color>
+    <color name="countTextcolor">#fff</color>
+    <color name="countBackgroundColor">#F45E08</color>
+    <color name="circleColor">#fff</color>
+    <color name="backGroundBottomColor">#04E1F8</color>
+    <color name="shadowcolor">#2E2E2E</color>
+
+    <color name="ligh_meduim_gray" >#f3f3f3</color>
+
+
+    <color name="primary">#2D7DF6</color>
+    <color name="background">#E4EBF5</color>
+    <color name="primary_text">#0B0D0C</color>
+    <color name="secondary_text">#7D818A</color>
+    <color name="dark_shadow">#CDD5EA</color>
+    <color name="light_shadow">#F8F9FE</color>
+    <color name="dark_icon">#212121</color>
+
+
 </resources>

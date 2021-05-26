@@ -4,6 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="android:textColorPrimary">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -23,8 +24,26 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
+    <style name="LabelStyle">
+        <item name="android:background">@drawable/bg_label</item>
+
+    </style>
+
+    <style name="NeumorphismCard">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">@dimen/_10sdp</item>
 
 
+    </style>
+
+    <style name="Theme.ABVGIETCONNECT.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ABVGIETCONNECT.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ABVGIETCONNECT.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

@@ -9,6 +9,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,9 +23,14 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -33,9 +39,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -54,33 +62,36 @@ import java.util.List;
 import institute.college.abvgietconnect.Adapter.PostAdapter;
 import institute.college.abvgietconnect.MainActivity;
 import institute.college.abvgietconnect.Models.Post;
+import institute.college.abvgietconnect.Models.StoryModel;
 import institute.college.abvgietconnect.R;
 
 public class HomePage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout1;
 
-    private static final int PReqCode = 2 ;
-    private static final int REQUESCODE = 2 ;
+    private static final int PReqCode = 2;
+    private static final int REQUESCODE = 2;
+    private static int PICK_IMAGE=1;
 
-    private boolean clicked = false;
 
-
-    Animation rotate_open,rotate_close,from_btm,to_btm;
-    Dialog popAddPost ;
-    ImageView popupUserImage,popupPostImage,popupAddBtn;
-    TextView popupTitle,popupDescription;
+    Dialog popAddPost;
+    ImageView popupUserImage, popupPostImage, popupAddBtn;
+    TextView popupTitle, popupDescription;
     ProgressBar popupClickProgress;
     private Uri pickedImgUri = null;
 
+    Uri imageUri;
+
     FirebaseAuth mAuth;
-    FirebaseUser currentUser;
+    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
-    RecyclerView postRecyclerView ;
-    PostAdapter postAdapter ;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference ;
+    RecyclerView postRecyclerView;
+    PostAdapter postAdapter;
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference,storyRef,referenceDel;
+
+    RecyclerView recyclerViewstory;
     List<Post> postList;
 
 
@@ -89,6 +100,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+        String currentuid = currentUser.getUid();
 
 
 
@@ -96,30 +109,58 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+
+
 
         // ini popup
         iniPopup();
         setupPopupImageClick();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_post);
+        FloatingActionButton fab = findViewById(R.id.fab_post);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                onAddButtonClicked();
                 popAddPost.show();
             }
         });
 
-        postRecyclerView  = findViewById(R.id.postRV);
+        storyRef = firebaseDatabase.getReference("All story");
+        referenceDel = firebaseDatabase.getReference("story");
+
+
+
+        recyclerViewstory =findViewById(R.id.rv_storyf4);
+        recyclerViewstory.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(HomePage.this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerViewstory.setLayoutManager(linearLayoutManager);
+        recyclerViewstory.setItemAnimator(new DefaultItemAnimator());
+
+        checkStory(currentuid);
+
+        FloatingActionButton fab1 = findViewById(R.id.fab_story);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intentstory = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intentstory.setType("image/*");
+                startActivityForResult(intentstory,PICK_IMAGE);
+            }
+        });
+
+
+
+
+        postRecyclerView = findViewById(R.id.postRV);
         postRecyclerView.setLayoutManager(new LinearLayoutManager(HomePage.this));
         postRecyclerView.setHasFixedSize(true);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Posts");
-
 
 
         NavigationView navigationView = findViewById(R.id.sz_navigation_drawer);
@@ -136,38 +177,36 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
 
 
-      /*  mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();*/
 
 
     }
 
-    private void onAddButtonClicked() {
-        setVisibility();
-        setAnimation();
+
+
+
+    private void checkStory(String currentuid){
+        referenceDel.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.hasChild(currentuid)){
+
+                }else {
+                    storyRef.removeValue();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
-    private void setVisibility() {
-    }
-
-    private void setAnimation() {
-        if (!clicked)
-        {
 
 
-        }
-    }
 
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        SharedPreferences prefs = getSharedPreferences("X", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("lastActivity", getClass().getName());
-        editor.commit();
-    }
 
 
 
@@ -202,6 +241,64 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
             }
         });
+
+
+
+
+
+
+        // story firebase adapter
+
+
+        FirebaseRecyclerOptions<StoryModel> options1 =
+                new FirebaseRecyclerOptions.Builder<StoryModel>()
+                        .setQuery(storyRef,StoryModel.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<StoryModel,StoryViewHolder> firebaseRecyclerAdapterstory =
+                new FirebaseRecyclerAdapter<StoryModel, StoryViewHolder>(options1) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull StoryViewHolder holder, int position, @NonNull final StoryModel model) {
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        final String currentUserid = user.getUid();
+
+
+                        holder.setStory(HomePage.this,model.getPostUri(),model.getName(),model.getTimeEnd(),model.getTimeUpload()
+                                ,model.getType(),model.getCaption(),model.getUrl(),model.getUid());
+
+                        String userid = getItem(position).getUid();
+                        holder.imageView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(HomePage.this,ShowStory.class);
+                                intent.putExtra("u",userid);
+                                startActivity(intent);
+
+                            }
+                        });
+
+
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public StoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                        View view = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.story_layout,parent,false);
+
+                        return new StoryViewHolder(view);
+
+
+
+                    }
+                };
+        firebaseRecyclerAdapterstory.startListening();
+
+        recyclerViewstory.setAdapter(firebaseRecyclerAdapterstory);
+
 
 
 
@@ -274,6 +371,26 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
             pickedImgUri = data.getData() ;
             popupPostImage.setImageURI(pickedImgUri);
 
+        }
+
+        else
+
+        try {
+
+            if (requestCode == PICK_IMAGE || resultCode == RESULT_OK ||
+                    data != null || data.getData() != null) {
+                imageUri = data.getData();
+
+                String url = imageUri.toString();
+                Intent intent = new Intent(HomePage.this,StoryActivity.class);
+                intent.putExtra("u",url);
+                startActivity(intent);
+            }else {
+                Toast.makeText(HomePage.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        }catch (Exception e){
+
+            Toast.makeText(HomePage.this, "error"+e, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -439,12 +556,22 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
 
         int id = item.getItemId();
 
+
+          if (id ==R.id.share){
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            String sharbody ="Link of the Application will be here!!";
+            intent.putExtra(Intent.EXTRA_TEXT,sharbody);
+            startActivity(Intent.createChooser(intent,"Share Using"));
+
+        }
+
          if (id ==R.id.log_out){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Sacchi me?")
+            builder.setTitle("Log Out")
                     .setCancelable(false)
-                    .setMessage("Tussi Jaa Re Ho!!")
-                    .setPositiveButton("Hanji", new DialogInterface.OnClickListener() {
+                    .setMessage("Are you sure you want to exit!!")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             FirebaseAuth.getInstance().signOut();
@@ -453,7 +580,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                             finish();
                         }
                     })
-                    .setNegativeButton("Nahi", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
@@ -462,6 +589,8 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                     });
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
+
+
 
             /**/
 

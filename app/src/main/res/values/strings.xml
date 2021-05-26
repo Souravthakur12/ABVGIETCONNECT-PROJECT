@@ -17,5 +17,20 @@ A.B.V.G.I.E.T Pragatinagar offers you an opportunity to dedicate yourself as a q
     <string name="sign_up">Sign up</string>
     <string name="forget_password">Forget Password.?</string>
 
+    <string name="prinicpal_message">Atal Bihari Vajpayee Government Institute of Engineering and Technology (ABVGIET), Pragtinagar, Shimla (H.P) was established on 10th April,2011 with the aim of providing quality higher education on par with international standards.Empowerment of students for their all round development through education is our cherished motto. Today education means much more than merely acquiring knowledge. It is acquisition of knowledge and skills, building character and improving employability of our young talent, the future leadership. I am sure, being stars and their painstakingly and gainfully developed ABVGIET Culture, we inherited a strong foundation to march ahead and achieve the within mentioned education objectives for a stronger and brighter India. Measures initiated by the Hon. Management, steps taken by the college administration, the willing contribution of the teaching and non-teaching staff and over whelming response and enthusiastic participation of my dear students in the college activates in the recent past all vouch for this. When all the constituents come together and work in unison, the expected results are bound to flow. I wish all the best.</string>
+
+
+    <string name="Main_page_selected"> %s page is selected</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

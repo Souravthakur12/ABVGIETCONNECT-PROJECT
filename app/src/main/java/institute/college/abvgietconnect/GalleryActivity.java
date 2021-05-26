@@ -22,7 +22,7 @@ public class GalleryActivity extends AppCompatActivity {
 
 
         staggeredRv = findViewById(R.id.staggered_rv);
-        manager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         staggeredRv.setLayoutManager(manager);
 
         List<row> list = new ArrayList<>();
@@ -39,7 +39,7 @@ public class GalleryActivity extends AppCompatActivity {
         list.add(new row(R.drawable.pic2));
         list.add(new row(R.drawable.labs));
 
-        adapter = new StaggeredRecyclerAdapter(this,list);
+        adapter = new StaggeredRecyclerAdapter(this, list);
         staggeredRv.setAdapter(adapter);
 
     }

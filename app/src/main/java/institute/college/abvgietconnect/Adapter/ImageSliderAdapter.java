@@ -1,4 +1,4 @@
-package institute.college.abvgietconnect;
+package institute.college.abvgietconnect.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,16 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-
-import com.bumptech.glide.Glide;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.List;
+
+import institute.college.abvgietconnect.Models.ImageSliderModel;
+import institute.college.abvgietconnect.R;
 
 public class ImageSliderAdapter extends SliderViewAdapter<SliderViewHolder> {
 

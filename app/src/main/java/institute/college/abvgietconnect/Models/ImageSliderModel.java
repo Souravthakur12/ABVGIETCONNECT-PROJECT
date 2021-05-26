@@ -1,4 +1,4 @@
-package institute.college.abvgietconnect;
+package institute.college.abvgietconnect.Models;
 
 public class ImageSliderModel {
     int Image;

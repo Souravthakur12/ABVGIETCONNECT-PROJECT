@@ -44,12 +44,11 @@ public class EditUserDetails extends AppCompatActivity {
     String prevStarted = "yes";
 
     ImageView ImgUserPhoto;
-    static int PReqCode = 1;
-    static int REQUESTCODE = 1;
-    Uri pickedImgUri;
+    static int PReqCode = 1 ;
+    static int REQUESTCODE = 1 ;
+    Uri pickedImgUri ;
 
-    private EditText userName, userStream, userPhone, userRoll_No;
-    private ProgressBar loadingProgress;
+    private EditText userName;
     private Button regBtn;
 
 
@@ -67,7 +66,7 @@ public class EditUserDetails extends AppCompatActivity {
             editor.apply();
         } else {
 
-            // moveToSecondary();
+         //    moveToSecondary();
         }
     }
 
@@ -84,70 +83,64 @@ public class EditUserDetails extends AppCompatActivity {
 
         //init firebase
 
+        //init firebase
+
         firebaseAuth = FirebaseAuth.getInstance();
 
 
-        database = FirebaseDatabase.getInstance();
+        database =FirebaseDatabase.getInstance();
         reference = database.getReference("Users");
 
 
         //init views
 
         userName = findViewById(R.id.regName);
-        userStream = findViewById(R.id.regStream);
-        userPhone = findViewById(R.id.regPhone);
-        userRoll_No = findViewById(R.id.regRollNo);
+
         regBtn = findViewById(R.id.regBtn);
+
+
 
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                ;
-                final String name = userName.getText().toString();
-                final String stream = userStream.getText().toString();
-                final String phone = userPhone.getText().toString();
-                final String roll = userRoll_No.getText().toString();
 
-                if (name.isEmpty() || stream.isEmpty() || phone.isEmpty() || roll.isEmpty()) {
+                final String name = userName.getText().toString();
+
+
+                if (name.isEmpty() ){
 
                     // something goes wrong : all fields must be filled
                     // we need to display an error message
-                    showMessage("Please Verify all fields");
-                    regBtn.setVisibility(View.VISIBLE);
+                    showMessage("Please Verify all fields") ;
 
 
-                } else {
-
-                    if (isValidPhone(userPhone.getText().toString())) {
-                        UploadUserDetails();
-                        Intent i = new Intent(EditUserDetails.this,HomePage.class);
-                        startActivity(i);
+                }
+                else{
+                    UploadUserDetails();
 
 
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Enter Valid Phone Number", Toast.LENGTH_SHORT).show();
-
+                    if (pickedImgUri != null){
+                        UploadUserPhoto( name ,pickedImgUri,firebaseAuth.getCurrentUser());
+                    }
+                    else {
+                        UploadUserWithoutPhoto(name,firebaseAuth.getCurrentUser());
                     }
 
 
-                    if (pickedImgUri != null) {
-                        UploadUserPhoto(name, pickedImgUri, firebaseAuth.getCurrentUser());
 
-                    } else {
-                        UploadUserWithoutPhoto(name, firebaseAuth.getCurrentUser());
-
-
-                    }
+                    Intent i = new Intent(EditUserDetails.this, HomePage.class);
+                    startActivity(i);
 
 
                 }
 
 
+
+
             }
         });
-
 
         ImgUserPhoto = findViewById(R.id.regUserPhoto);
 
@@ -174,16 +167,6 @@ public class EditUserDetails extends AppCompatActivity {
 
     }
 
-    private boolean isValidPhone(String toString) {
-        boolean check = false;
-        if (toString.length() != 10) {
-            check = false;
-        } else {
-            check = true;
-        }
-
-        return check;
-    }
 
 
     private void UploadUserPhoto(final String userName, final Uri pickedImgUri, final FirebaseUser currentUser) {
@@ -270,16 +253,16 @@ public class EditUserDetails extends AppCompatActivity {
 
     private void UploadUserDetails() {
         String name = userName.getText().toString();
-        String stream = userStream.getText().toString();
+       /* String stream = userStream.getText().toString();
         String phone = userPhone.getText().toString();
-        String roll = userRoll_No.getText().toString();
+        String roll = userRoll_No.getText().toString();*/
         //  String imguser = pickedImgUri.toString();
 
         HashMap<String, Object> result = new HashMap<>();
         result.put("name", name);
-        result.put("stream", stream);
+       /* result.put("stream", stream);
         result.put("phone", phone);
-        result.put("roll_no", roll);
+        result.put("roll_no", roll);*/
         //  result.put("image",imguser);
 
 
@@ -327,6 +310,7 @@ public class EditUserDetails extends AppCompatActivity {
 
                 Toast.makeText(EditUserDetails.this, "Please accept for required permission", Toast.LENGTH_SHORT).show();
 
+                
             } else {
                 ActivityCompat.requestPermissions(EditUserDetails.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},

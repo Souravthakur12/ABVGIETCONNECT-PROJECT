@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import institute.college.abvgietconnect.EbookActivity;
 import institute.college.abvgietconnect.R;
+import soup.neumorphism.NeumorphCardView;
 
 public class AdministrationActivity extends AppCompatActivity {
 
-    CardView c1,c2,c3,c4;
+    NeumorphCardView c1,c2,c3,c4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,22 @@ public class AdministrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdministrationActivity.this,Staff.class);
+                startActivity(intent);
+            }
+        });
+
+        c2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdministrationActivity.this,PrincipalActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        c4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdministrationActivity.this, EbookActivity.class);
                 startActivity(intent);
             }
         });

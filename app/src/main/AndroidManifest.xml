@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ndroid="http://schemas.android.com/apk/distribution"
     package="institute.college.abvgietconnect">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,26 +15,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ABVGIETCONNECT">
-        <activity android:name=".Departments"></activity>
-        <activity android:name=".StudentZone.PostDetailActivity"></activity>
-        <activity android:name=".StudentZone.HomePage">
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".pdfViewerActivity" />
+        <activity android:name=".EbookActivity" />
+        <activity android:name=".Department.EceDepartment" />
+        <activity android:name=".Department.CseDepartment" />
+        <activity android:name=".FullImageView" />
+        <activity android:name=".StudentZone.ShowStory" />
+        <activity android:name=".StudentZone.StoryActivity" />
+        <activity android:name=".Administration.PrincipalActivity" />
+        <activity android:name=".Department.Departments" />
+        <activity android:name=".StudentZone.PostDetailActivity" />
+        <activity
+            android:name=".StudentZone.HomePage"
+            android:persistent="true" />
         <activity android:name=".StudentZone.EditUserDetails" />
         <activity android:name=".StudentZone.ForgetPassword" />
         <activity android:name=".StudentZone.LoginActivity" />
         <activity android:name=".Administration.Staff" />
         <activity android:name=".Administration.AdministrationActivity" />
         <activity android:name=".GalleryActivity" />
-        <activity android:name=".MainActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
 
         </activity>
+        
     </application>
 
 </manifest>

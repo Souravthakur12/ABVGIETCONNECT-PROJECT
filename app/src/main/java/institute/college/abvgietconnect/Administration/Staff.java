@@ -6,9 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.facebook.shimmer.Shimmer;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +31,10 @@ public class Staff extends AppCompatActivity {
 
     private StaffAdapter adapter;
 
+    ShimmerFrameLayout shimmerFrameLayout;
+
+    LinearLayout shimmerlayout;
+
 
 
     @Override
@@ -35,6 +43,8 @@ public class Staff extends AppCompatActivity {
         setContentView(R.layout.activity_staff);
 
         recyclerView = findViewById(R.id.recycler_view);
+        /*shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
+        shimmerlayout = findViewById(R.id.shimmer_layout);*/
 
 
 
@@ -44,7 +54,9 @@ public class Staff extends AppCompatActivity {
                         .build();
         adapter = new StaffAdapter(options,this);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+
+
+
 
 
 
@@ -63,7 +75,21 @@ public class Staff extends AppCompatActivity {
         super.onStart();
         adapter.startListening();
 
+
+
     }
+
+  /*  @Override
+    protected void onPause() {
+        shimmerFrameLayout.stopShimmer();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        shimmerFrameLayout.startShimmer();
+    }*/
 
     @Override
     protected void onStop() {

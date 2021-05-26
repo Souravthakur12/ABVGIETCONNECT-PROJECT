@@ -60,6 +60,8 @@ public class PostDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_detail);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+
 
         // let's set the statue bar to transparent
         Window w = getWindow();

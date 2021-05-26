@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ABVGIETCONNECT" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ABVGIETCONNECT" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -16,6 +16,27 @@
     <style name="ProgressBarStyle">
         <item name="colorAccent">@color/colorProgressBar</item>
     </style>
+
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="LabelStyle">
+        <item name="android:background">@drawable/bg_label</item>
+
+    </style>
+
+    <style name="Theme.ABVGIETCONNECT.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.ABVGIETCONNECT.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.ABVGIETCONNECT.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

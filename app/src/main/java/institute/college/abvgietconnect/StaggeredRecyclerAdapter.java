@@ -1,7 +1,6 @@
 package institute.college.abvgietconnect;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class StaggeredRecyclerAdapter  extends RecyclerView.Adapter<StaggeredRecyclerAdapter.ImageViewHolder> {
+public class StaggeredRecyclerAdapter extends RecyclerView.Adapter<StaggeredRecyclerAdapter.ImageViewHolder> {
 
     Context mContext;
     List<row> mdata;
@@ -25,7 +24,7 @@ public class StaggeredRecyclerAdapter  extends RecyclerView.Adapter<StaggeredRec
     @NonNull
     @Override
     public StaggeredRecyclerAdapter.ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View view = LayoutInflater.from(mContext).inflate(R.layout.row_item,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.row_item, parent, false);
 
         return new ImageViewHolder(view);
     }
@@ -41,15 +40,13 @@ public class StaggeredRecyclerAdapter  extends RecyclerView.Adapter<StaggeredRec
         return mdata.size();
     }
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder{
+    public class ImageViewHolder extends RecyclerView.ViewHolder {
 
         ImageView img;
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.row_img);
-
-
 
 
         }
